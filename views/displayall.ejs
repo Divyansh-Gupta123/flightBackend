@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <style>
+            .main{ background-image:url('/images/back1.jpg');
+                display:flex;
+                justify-content:center;
+             
+                background-color: #8e44ad;
+                height:100vh;
+               
+            }
+            .root{ border:8px solid black;
+                width:1200px;
+                height:auto;
+                background-color: #ecf0f1;
+            }
+            .heading{
+                color:crimson;
+                font-size: xx-large;
+                font-weight: bold;
+                font-family: oxgen;
+                display:flex ;
+                justify-content: center;
+                padding:5px;
+                background-color: greenyellow;
+            }
+        </style>
+         <!--Import Google Icon Font-->
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+         <!--Import materialize.css-->
+         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    
+         <!--Let browser know website is optimized for mobile-->
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+          <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         
+        <div class="main">
+            <div class="root">
+                <div class="heading"><span><img height="70px" width="150px" src='/images/indianair.png'></span>List of Flights</div>
+                <hr>
+                <table class="striped">
+                   
+                    <thead>
+                      <tr>
+                          <th>flightid</th>
+                          <th>companyName</th>
+                          <th>source </th>
+                          <th>destination</th>
+                          <th>Type</th>
+                          <th>class </th>
+                          <th>days </th>
+                          <th>update</th>
+                      </tr>
+                    </thead>
+            
+                    <tbody>
+                        <% data.map((item)=>{%>
+                            
+                      <tr>
+                        <td><%=item.flightid%></td>
+                        <th><%=item.companyname%><br><img  height='60px'width="60px" src='/images/<%=item.logo%>'</th>
+                        <td><%=item.sc%><br><%=item.sourcetimings%></td>
+                        <td><%=item.dc%><br><%=item.destinationtiming%></td>
+                        <td><%=item.status%></td>
+                        <td><%=item.flightclass%></td>
+                        <td><%=item.days%></td>
+                        <td><a href="/divyansh/displaybyid?flightid=<%=item.flightid %>">update</a></td>
+                    </tr>
+                    <% }) %>
+                     
+                </table>        
+            </div>
+        </div>
+        </head>
+</html>
